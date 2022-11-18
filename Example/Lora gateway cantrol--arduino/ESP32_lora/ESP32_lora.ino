@@ -36,11 +36,12 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 #define OUTPUT_POWER 10
 #define PREAMBLE_LEN 8
 #define GAIN 0
+#define SX127X_SYNC_WORD 0x12 
 
 SX1278 radio = new Module(LORA_CS, DIO0, LORA_RST, DIO1, SPI, SPISettings());
 
-const char *ssid = "Makerfabs";
-const char *password = "20160704";
+const char *ssid = "Protos24";
+const char *password = "sulzerschmid";
 
 WebServer server(80); 
 String form =
@@ -210,7 +211,7 @@ void setup()
 
   int state = radio.begin(FREQUENCY, BANDWIDTH, SPREADING_FACTOR, CODING_RATE, SX127X_SYNC_WORD, OUTPUT_POWER, PREAMBLE_LEN, GAIN);
     //int state = radio.begin();
-  if (state == ERR_NONE)
+  if (state == RADIOLIB_ERR_NONE)
   {
         Serial.println(F("success!"));
   }

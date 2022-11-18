@@ -20,6 +20,8 @@ const int SPI_MOSI = 11;
 const int SPI_MISO = 12;
 const int SPI_SCK = 13;
 
+
+
 #define FREQUENCY 434.0
 #define BANDWIDTH 125.0
 #define SPREADING_FACTOR 9
